@@ -1,0 +1,23 @@
+---
+title: Solutions
+---
+
+## Different approaches to tackling the MEV problem <a href="#different-approaches-to-tackling-the-mev-problem" id="different-approaches-to-tackling-the-mev-problem"></a>
+
+There are largely 2 schools of thought when it comes to approaching the MEV problem
+
+1. <img src="/images/icon-offense-faas.png" alt="" width="32" height="32" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.25rem'}} /> **Offense** - MEV is here to stay so let's find a way to extract and democratize it.
+2. <img src="/images/icon-defense-shield.png" alt="" width="32" height="32" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.25rem'}} /> **Defense** - MEV is bad so let's try to prevent it.
+
+Projects like Automata Network are in the Defense camp where the solution [Conveyor](https://docs.ata.network/mev/solutions/mev-minimization-prevention/#conveyor-the-automata-network-approach-to-tackling-mev) ingests transactions and outputs transactions in a determined order. This creates a front-running-free zone that removes the chaos of transaction reordering.
+
+To further explain, we have put different approaches into 3 categories:
+
+<Cards cols={1}>
+  <Card title="Front-running as a Service (FaaS) or MEV Auctions (MEVA)" href="faas-or-meva" />
+  <Card title="MEV Minimization" href="mev-minimization" />
+  <Card title="Other solutions" href="others" />
+</Cards>
+
+
+

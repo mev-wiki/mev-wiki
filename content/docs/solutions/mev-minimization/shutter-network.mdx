@@ -1,0 +1,24 @@
+---
+title: Shutter Network
+---
+
+## <img src="/images/icon-defense-shield.png" alt="" width="32" height="32" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.25rem'}} />Shutter Network
+
+Shutter Network is an open-source project that aims to prevent frontrunning and malicious MEV on Ethereum by using a threshold cryptography-based distributed key generation (DKG) protocol.
+
+A Shutter transaction is a transaction protected from frontrunning in the target smart contract system. It therefore passes through a sequence of stages before it is executed.
+
+A Shutter transaction flow:
+
+1. Created and encrypted in the user's wallet;
+2. Sent to the batcher contract as a standard Ethereum transaction;
+3. Picked up and decrypted by the keypers;
+4. Sent to the executor contract, and
+5. Forwarded to the target contract.
+
+<Callout type="info">
+**Links:**
+
+* Website: [https://shutter.ghost.io/](https://shutter.ghost.io/)
+* GitHub: [https://github.com/brainbot-com/shutter](https://github.com/brainbot-com/shutter)
+</Callout>

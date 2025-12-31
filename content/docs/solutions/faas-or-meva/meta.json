@@ -1,0 +1,15 @@
+{
+  "title": "Front-running as a Service (FaaS) or MEV Auctions (MEVA)",
+  "pages": [
+    "index",
+    "private-transactions",
+    "backrunme-by-bloxroute",
+    "flashbots",
+    "mistx-by-alchemist",
+    "keeperdao",
+    "archerswap",
+    "optimism",
+    "miningdao",
+    "backbone-cabal"
+  ]
+}

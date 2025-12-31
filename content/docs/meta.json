@@ -1,0 +1,13 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "resource-list",
+    "terms-and-concepts",
+    "attack-examples",
+    "attempts-to-trick-the-bots",
+    "solutions",
+    "miscellaneous",
+    "contributions"
+  ]
+}

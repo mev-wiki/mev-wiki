@@ -1,0 +1,280 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/solar.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@theme {
+  /* Orange highlight colors for light mode */
+  --color-fd-primary: hsl(25, 95%, 53%);
+  --color-fd-primary-foreground: hsl(0, 0%, 100%);
+  --color-fd-accent: hsla(25, 95%, 53%, 0.15);
+  --color-fd-accent-foreground: hsl(25, 95%, 40%);
+  --color-fd-ring: hsl(25, 95%, 53%);
+}
+
+.dark {
+  /* Orange highlight colors for dark mode */
+  --color-fd-primary: hsl(25, 95%, 58%);
+  --color-fd-primary-foreground: hsl(0, 0%, 9%);
+  --color-fd-accent: hsla(25, 95%, 53%, 0.2);
+  --color-fd-accent-foreground: hsl(25, 95%, 70%);
+  --color-fd-ring: hsl(25, 95%, 58%);
+}
+
+/* Hide scrollbar for sidebar */
+#nd-sidebar,
+#nd-sidebar > *,
+[data-sidebar],
+aside[data-sidebar],
+nav[data-sidebar] {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+#nd-sidebar::-webkit-scrollbar,
+#nd-sidebar > *::-webkit-scrollbar,
+[data-sidebar]::-webkit-scrollbar,
+aside[data-sidebar]::-webkit-scrollbar,
+nav[data-sidebar]::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide breadcrumb navigation */
+#nd-page article > div[class*="flex items-center gap-1.5 text-sm text-fd-muted-foreground"] {
+  display: none;
+}
+
+/* ============================================
+   Page Transition Animations
+   ============================================ */
+
+/* Keyframes for slide-in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keyframes for slide-in from bottom */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for text reveal */
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for image reveal with scale */
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply slide-in animation to main content */
+main {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* Apply animations to article/doc content */
+article {
+  animation: textReveal 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Animate headings with staggered delays */
+/* Show title (h1) first with no delay */
+article h1 {
+  animation: textReveal 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Show h2 and h3 with content and images */
+article h2 {
+  animation: textReveal 0.5s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+article h3 {
+  animation: textReveal 0.5s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Show images together with content after title */
+article img,
+article picture,
+article [data-rehype-pretty-code-figure] img {
+  animation: textReveal 0.5s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Show content blocks together with images after title */
+article p,
+article ul,
+article ol,
+article pre,
+article blockquote {
+  animation: textReveal 0.5s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Code blocks animate with other content */
+article pre {
+  animation: textReveal 0.5s ease-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* Smooth transitions for navigation changes */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Social icons: fixed to the upper-right */
+.social-group {
+  display: flex;
+  gap: 10px;
+}
+
+.social-group a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.social-group a:hover {
+  background: #d4d4d4;
+  color: #333;
+}
+
+.dark .social-group a {
+  background: #1f1f1f;
+  color: #bbb;
+}
+
+.dark .social-group a:hover {
+  background: #2a2a2a;
+  color: white;
+}
+
+#nd-toc .social-group-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#nd-toc .social-group-wrapper .social-group {
+  position: sticky;
+  top: calc(var(--fd-nav-height, 56px) + 48px);
+  align-self: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Hide images in the TOC (On this page section) */
+#nd-toc img {
+  display: none !important;
+}
+
+/* Figure and caption styling */
+article figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Remove default paragraph margin inside figure (MDX wraps markdown in p tags) */
+article figure p {
+  margin: 0 !important;
+}
+
+/* Remove bottom margin from images inside figure */
+article figure img {
+  margin-bottom: 0 !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article figcaption {
+  margin-top: 0.075rem !important;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+}
+
+.dark article figcaption {
+  color: #9ca3af;
+}
+
+/* Reduce gap after any heading with inline images (icon headings) */
+article h1:has(img),
+article h2:has(img),
+article h3:has(img),
+article h4:has(img),
+article h5:has(img),
+article h6:has(img) {
+  margin-bottom: -1.5rem !important;
+}
+
+/* Reduce height of list items with inline images */
+article li:has(img) {
+  margin-bottom: -2rem !important;
+  margin-top: -2rem !important;
+}

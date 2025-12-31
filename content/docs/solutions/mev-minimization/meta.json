@@ -1,0 +1,16 @@
+{
+  "title": "MEV Minimization",
+  "pages": [
+    "index",
+    "conveyor-automata-network",
+    "secretswap-secret-network",
+    "fair-sequencing-service-chainlink",
+    "arbitrum-offchain-labs",
+    "vega-protocol",
+    "cowswap",
+    "veedo-starkware",
+    "libsubmarine",
+    "sikka",
+    "shutter-network"
+  ]
+}

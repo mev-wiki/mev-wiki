@@ -1,0 +1,14 @@
+{
+  "title": "Terms and Concepts",
+  "pages": [
+    "index",
+    "defi",
+    "automated-market-maker",
+    "arbitrage",
+    "lending-platforms",
+    "slippage",
+    "liquidations",
+    "priority-gas-auctions",
+    "transaction-ordering"
+  ]
+}
