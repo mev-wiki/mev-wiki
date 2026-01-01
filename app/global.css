@@ -20,6 +20,51 @@
   --color-fd-ring: hsl(25, 95%, 58%);
 }
 
+@layer utilities {
+  /* Force tight line-height for all h2 headings - highest priority */
+  article h2,
+  h2,
+  .prose h2,
+  [data-content] h2,
+  main h2 {
+    line-height: 1.25 !important;
+  }
+
+  /* Specifically target headings with images */
+  h2:has(img),
+  article h2:has(img) {
+    line-height: 1.25 !important;
+  }
+
+  /* Remove margins from inline images in headings AND list items */
+  h1 img,
+  h2 img,
+  h3 img,
+  h4 img,
+  h5 img,
+  h6 img,
+  article h1 img,
+  article h2 img,
+  article h3 img,
+  li img,
+  article li img,
+  ol li img,
+  ul li img {
+    margin: 0 !important;
+    margin-right: 0.25rem !important; /* Keep the small right margin */
+  }
+
+  /* Add bottom margin to headings with images for spacing */
+  h2:has(img),
+  h1:has(img),
+  h3:has(img),
+  article h2:has(img),
+  article h1:has(img),
+  article h3:has(img) {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
 /* Hide scrollbar for sidebar */
 #nd-sidebar,
 #nd-sidebar > *,
@@ -271,10 +316,43 @@ article h4:has(img),
 article h5:has(img),
 article h6:has(img) {
   margin-bottom: -1.5rem !important;
+  line-height: 1.25 !important; /* Reduce line spacing when heading text wraps */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
-/* Reduce height of list items with inline images */
-article li:has(img) {
-  margin-bottom: -2rem !important;
-  margin-top: -2rem !important;
+/* Ensure tight spacing in multi-line headings - more specific selectors */
+#nd-page article h2:has(img),
+#nd-page article h1:has(img),
+#nd-page article h3:has(img),
+main article h2:has(img),
+main article h1:has(img),
+main article h3:has(img) {
+  line-height: 1.25 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
+/* Target all h2 elements specifically (temporary debug rule) */
+article h2 {
+  line-height: 1.25 !important;
+  /* border: 2px solid red !important; */ /* Uncomment to debug if CSS is loading */
+}
+
+/* Nuclear option - target by content structure */
+h2:has(> img[alt=""]) {
+  line-height: 1.25 !important;
+  display: block !important;
+}
+
+/* Most specific possible selector */
+article > h2:has(img) {
+  line-height: 1.25 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Removed: old rule was causing issues with list item images */
