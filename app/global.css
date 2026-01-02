@@ -36,7 +36,7 @@
     line-height: 1.25 !important;
   }
 
-  /* Remove margins from inline images in headings AND list items */
+  /* Remove margins from inline images in headings */
   h1 img,
   h2 img,
   h3 img,
@@ -45,13 +45,20 @@
   h6 img,
   article h1 img,
   article h2 img,
-  article h3 img,
+  article h3 img {
+    margin: 0 !important;
+    margin-right: 0.25rem !important; /* Keep the small right margin */
+  }
+
+  /* Reduce margins for inline images in list items to 8px */
   li img,
   article li img,
   ol li img,
   ul li img {
-    margin: 0 !important;
-    margin-right: 0.25rem !important; /* Keep the small right margin */
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    margin-left: 0 !important;
+    margin-right: 0.25rem !important;
   }
 
   /* Add bottom margin to headings with images for spacing */

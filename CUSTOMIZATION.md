@@ -39,7 +39,7 @@ The template includes these Automata Network defaults:
 ```bash
 # Site Configuration (customize for your project)
 NEXT_PUBLIC_SITE_URL=https://docs.ata.network
-NEXT_PUBLIC_SITE_TITLE=Automata Network Docs
+NEXT_PUBLIC_SITE_TITLE=MEV Wiki
 NEXT_PUBLIC_SITE_DESCRIPTION=Official Automata Network documentation
 NEXT_PUBLIC_SITE_KEYWORDS=Automata,Automata Network,blockchain,TEE,attestation,documentation
 NEXT_PUBLIC_TWITTER_HANDLE=@AutomataNetwork

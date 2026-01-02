@@ -9,9 +9,9 @@ import { source } from '@/lib/source';
 
 const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.ata.network',
-  title: process.env.NEXT_PUBLIC_SITE_TITLE || 'Automata Network Docs',
-  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Official Automata Network documentation',
-  keywords: process.env.NEXT_PUBLIC_SITE_KEYWORDS?.split(',') || ['Automata', 'Automata Network', 'blockchain', 'TEE', 'attestation', 'documentation'],
+  title: process.env.NEXT_PUBLIC_SITE_TITLE || 'MEV Wiki',
+  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains',
+  keywords: process.env.NEXT_PUBLIC_SITE_KEYWORDS?.split(',') || ['MEV', 'Maximal Extractable Value', 'Ethereum', 'front-running', 'sandwich attacks', 'blockchain', 'DeFi', 'Flashbots'],
   twitterHandle: process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@AutomataNetwork',
 };
 
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/icon.png',
+        url: '/mev-logo.png',
         width: 512,
         height: 512,
         alt: `${siteConfig.title} logo`,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     site: siteConfig.twitterHandle,
     creator: siteConfig.twitterHandle,
-    images: ['/icon.png'],
+    images: ['/mev-logo.png'],
   },
   robots: {
     index: true,
@@ -59,11 +59,11 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon.png', sizes: '96x96', type: 'image/png' },
+      { url: '/mev-logo.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
     ],
     shortcut: '/favicon.ico',
-    apple: '/icon.png',
+    apple: '/mev-logo.png',
   },
 };
 

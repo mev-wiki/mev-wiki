@@ -1,6 +1,6 @@
-# Automata Network Documentation Template
+# MEV Wiki
 
-A modern, production-ready documentation template built with Next.js and Fumadocs. Designed for Automata Network projects with built-in branding and social integrations.
+A comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains. Built with Next.js and Fumadocs.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-black)]()
 [![Fumadocs](https://img.shields.io/badge/Fumadocs-16-blue)]()
@@ -50,21 +50,20 @@ Visit [http://localhost:3000](http://localhost:3000) to see your documentation s
 
 ### 1. Environment Variables
 
-Edit `.env` to customize for your specific Automata project:
+Edit `.env` to customize the site:
 
 ```bash
-# Customize for your Automata project
+# Site configuration
 NEXT_PUBLIC_SITE_URL=https://docs.ata.network
-NEXT_PUBLIC_SITE_TITLE=Automata Network Docs
-NEXT_PUBLIC_SITE_DESCRIPTION=Official Automata Network documentation
+NEXT_PUBLIC_SITE_TITLE=MEV Wiki
+NEXT_PUBLIC_SITE_DESCRIPTION=Comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains
 
-# Automata Network social links (defaults provided)
-# Update only if you need project-specific channels
+# Social links
 NEXT_PUBLIC_TWITTER_URL=https://ata.ws/twitter
 NEXT_PUBLIC_GITHUB_URL=https://ata.ws/github
 ```
 
-**Default Values:** The template comes pre-configured with Automata Network branding and social links. You can override these for specific projects.
+**Default Values:** The site comes pre-configured with MEV Wiki branding. You can override these via environment variables.
 
 See [`.env.example`](.env.example) for all available configuration options.
 

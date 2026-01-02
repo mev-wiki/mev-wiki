@@ -4,8 +4,8 @@ import Link from 'fumadocs-core/link';
 import { SearchToggle } from 'fumadocs-ui/components/layout/search-toggle';
 import { Navbar, SidebarTrigger } from 'fumadocs-ui/layouts/docs';
 
-const LOGO_SRC = process.env.NEXT_PUBLIC_LOGO_PATH || '/icon.png';
-const SITE_TITLE = process.env.NEXT_PUBLIC_SITE_TITLE || 'Automata Network Docs';
+const LOGO_SRC = process.env.NEXT_PUBLIC_LOGO_PATH || '/mev-logo.png';
+const SITE_TITLE = process.env.NEXT_PUBLIC_SITE_TITLE || 'MEV Wiki';
 
 export function BrandMark() {
   return (
