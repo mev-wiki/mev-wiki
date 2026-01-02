@@ -1,6 +1,8 @@
 # MEV Wiki
 
-A comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains. Built with Next.js and Fumadocs.
+Welcome to the MEV Wiki. A comprehensive resource for understanding MEV (Maximal Extractable Value) on Ethereum and other blockchains.
+
+🌐 **Live Site:** [https://www.mev.wiki/](https://www.mev.wiki/)
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-black)]()
 [![Fumadocs](https://img.shields.io/badge/Fumadocs-16-blue)]()
@@ -54,9 +56,9 @@ Edit `.env` to customize the site:
 
 ```bash
 # Site configuration
-NEXT_PUBLIC_SITE_URL=https://docs.ata.network
+NEXT_PUBLIC_SITE_URL=https://www.mev.wiki/
 NEXT_PUBLIC_SITE_TITLE=MEV Wiki
-NEXT_PUBLIC_SITE_DESCRIPTION=Comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains
+NEXT_PUBLIC_SITE_DESCRIPTION=Welcome to the MEV Wiki.
 
 # Social links
 NEXT_PUBLIC_TWITTER_URL=https://ata.ws/twitter

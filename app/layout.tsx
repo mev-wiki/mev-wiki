@@ -8,9 +8,9 @@ import { Analytics } from '@vercel/analytics/react';
 import { source } from '@/lib/source';
 
 const siteConfig = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://docs.ata.network',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mev.wiki/',
   title: process.env.NEXT_PUBLIC_SITE_TITLE || 'MEV Wiki',
-  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Comprehensive guide to MEV (Maximal Extractable Value) on Ethereum and other blockchains',
+  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Welcome to the MEV Wiki.',
   keywords: process.env.NEXT_PUBLIC_SITE_KEYWORDS?.split(',') || ['MEV', 'Maximal Extractable Value', 'Ethereum', 'front-running', 'sandwich attacks', 'blockchain', 'DeFi', 'Flashbots'],
   twitterHandle: process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@AutomataNetwork',
 };
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/mev-logo.png',
-        width: 512,
-        height: 512,
-        alt: `${siteConfig.title} logo`,
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.title}`,
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     site: siteConfig.twitterHandle,
     creator: siteConfig.twitterHandle,
-    images: ['/mev-logo.png'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
