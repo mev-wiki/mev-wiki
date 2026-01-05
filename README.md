@@ -237,7 +237,7 @@ pnpm type-check   # TypeScript type checking
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 - **[MDX](https://mdxjs.com/)** - Markdown with components
 
-## 📖 Documentation
+## 📖 Docs
 
 - **Getting Started** - See example content in `content/docs/getting-started/`
 - **Customization** - Read [CUSTOMIZATION.md](CUSTOMIZATION.md)
