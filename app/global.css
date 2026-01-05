@@ -9,6 +9,10 @@
   --color-fd-accent: hsla(25, 95%, 53%, 0.15);
   --color-fd-accent-foreground: hsl(25, 95%, 40%);
   --color-fd-ring: hsl(25, 95%, 53%);
+
+  /* Pure white background for content area */
+  --color-fd-background: hsl(0, 0%, 100%);
+  --color-fd-card: hsl(0, 0%, 100%);
 }
 
 .dark {
@@ -21,6 +25,14 @@
 }
 
 @layer utilities {
+  /* Pure white background for MDX content in light mode */
+  :not(.dark) article,
+  :not(.dark) main,
+  :not(.dark) [data-content],
+  :not(.dark) #nd-page {
+    background-color: #ffffff !important;
+  }
+
   /* Force tight line-height for all h2 headings - highest priority */
   article h2,
   h2,
