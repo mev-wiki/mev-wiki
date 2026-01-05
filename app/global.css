@@ -1,3 +1,4 @@
+@import './fonts.css';
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/solar.css';
 @import 'fumadocs-ui/css/preset.css';
@@ -15,6 +16,43 @@
   --color-fd-card: hsl(0, 0%, 100%);
 }
 
+/* Typography - Title (h1) and Subtitle (h2) */
+h1,
+article h1,
+main h1 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 36px !important;
+  line-height: 45px !important;
+  color: rgb(28, 29, 31) !important;
+}
+
+h2,
+article h2,
+main h2,
+.prose h2,
+[data-content] h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  line-height: 38px !important;
+  color: rgb(28, 29, 31) !important;
+}
+
+/* Body text */
+body,
+article p,
+article li,
+article,
+main {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 28px !important;
+  color: rgb(28, 29, 31) !important;
+}
+
 .dark {
   /* Orange highlight colors for dark mode */
   --color-fd-primary: hsl(25, 95%, 58%);
@@ -22,6 +60,29 @@
   --color-fd-accent: hsla(25, 95%, 53%, 0.2);
   --color-fd-accent-foreground: hsl(25, 95%, 70%);
   --color-fd-ring: hsl(25, 95%, 58%);
+}
+
+/* Dark mode typography - white text */
+.dark h1,
+.dark article h1,
+.dark main h1 {
+  color: rgb(255, 255, 255) !important;
+}
+
+.dark h2,
+.dark article h2,
+.dark main h2,
+.dark .prose h2,
+.dark [data-content] h2 {
+  color: rgb(255, 255, 255) !important;
+}
+
+.dark body,
+.dark article p,
+.dark article li,
+.dark article,
+.dark main {
+  color: rgb(255, 255, 255) !important;
 }
 
 @layer utilities {
