@@ -94,6 +94,15 @@ main {
     background-color: #ffffff !important;
   }
 
+  /* Black background and white text for MDX content in dark mode */
+  .dark article,
+  .dark main,
+  .dark [data-content],
+  .dark #nd-page {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
   /* Force tight line-height for all h2 headings - highest priority */
   article h2,
   h2,
