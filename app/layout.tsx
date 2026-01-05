@@ -6,9 +6,10 @@ import { baseOptions } from '@/lib/layout.shared';
 import SocialIcons from '@/components/social-icons';
 import { Analytics } from '@vercel/analytics/react';
 import { source } from '@/lib/source';
+import { siteUrl, withBasePath } from '@/lib/env';
 
 const siteConfig = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mev.wiki/',
+  url: siteUrl,
   title: process.env.NEXT_PUBLIC_SITE_TITLE || 'MEV Wiki',
   description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Welcome to the MEV Wiki.',
   keywords: process.env.NEXT_PUBLIC_SITE_KEYWORDS?.split(',') || ['MEV', 'Maximal Extractable Value', 'Ethereum', 'front-running', 'sandwich attacks', 'blockchain', 'DeFi', 'Flashbots'],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   applicationName: siteConfig.title,
   keywords: siteConfig.keywords,
   alternates: {
-    canonical: '/',
+    canonical: withBasePath('/'),
   },
   openGraph: {
     title: siteConfig.title,
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
+        url: withBasePath('/og-image.png'),
         width: 1200,
         height: 630,
         alt: `${siteConfig.title}`,
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     site: siteConfig.twitterHandle,
     creator: siteConfig.twitterHandle,
-    images: ['/og-image.png'],
+    images: [withBasePath('/og-image.png')],
   },
   robots: {
     index: true,
@@ -57,21 +58,34 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/mev-logo.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: withBasePath('/favicon-16x16.png'), sizes: '16x16', type: 'image/png' },
+      { url: withBasePath('/favicon-32x32.png'), sizes: '32x32', type: 'image/png' },
+      { url: withBasePath('/mev-logo.png'), sizes: '96x96', type: 'image/png' },
+      { url: withBasePath('/favicon.ico'), sizes: 'any' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/mev-logo.png',
+    shortcut: withBasePath('/favicon.ico'),
+    apple: withBasePath('/mev-logo.png'),
   },
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {
+  const searchEnabled = process.env.NEXT_PUBLIC_ENABLE_SEARCH !== 'false';
+  const searchIndexPath = withBasePath('/search.json');
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen font-sans">
-        <RootProvider>
+        <RootProvider
+          search={{
+            enabled: searchEnabled,
+            options: searchEnabled
+              ? {
+                  type: 'static',
+                  api: searchIndexPath,
+                }
+              : undefined,
+          }}
+        >
           <DocsLayout tree={source.pageTree} {...baseOptions()}>
             <SocialIcons />
             {children}

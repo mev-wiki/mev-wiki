@@ -170,6 +170,25 @@ This template works with:
 - **Railway** - Docker or Nixpacks
 - Any Node.js hosting platform
 
+### Deploy to GitHub Pages
+
+GitHub Pages needs a static export and a base path that matches your repository.
+
+1) Set environment variables (example for `username/mev-wiki`):
+```
+NEXT_PUBLIC_BASE_PATH=/mev-wiki
+NEXT_PUBLIC_SITE_URL=https://username.github.io/mev-wiki/
+NEXT_PUBLIC_GITHUB_PAGES=true
+NEXT_EXPORT=true
+```
+
+2) Build the static site (outputs to `./out`):
+```
+NEXT_EXPORT=true pnpm run build
+```
+
+3) Publish the `out/` directory to your `gh-pages` branch (or use the GitHub Pages GitHub Action to upload that folder as the artifact).
+
 ## 📂 Project Structure
 
 ```

@@ -4,6 +4,7 @@ import { ImageResponse } from 'next/og';
 import { generate as DefaultImage } from 'fumadocs-ui/og';
 
 export const revalidate = false;
+export const dynamic = 'force-static';
 
 export async function GET(
   _req: Request,

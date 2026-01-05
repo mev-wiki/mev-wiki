@@ -3,8 +3,12 @@
 import Link from 'fumadocs-core/link';
 import { SearchToggle } from 'fumadocs-ui/components/layout/search-toggle';
 import { Navbar, SidebarTrigger } from 'fumadocs-ui/layouts/docs';
+import { withBasePath } from '@/lib/env';
 
-const LOGO_SRC = process.env.NEXT_PUBLIC_LOGO_PATH || '/mev-logo.png';
+const rawLogoPath = process.env.NEXT_PUBLIC_LOGO_PATH || '/mev-logo.png';
+const LOGO_SRC = rawLogoPath.startsWith('http')
+  ? rawLogoPath
+  : withBasePath(rawLogoPath);
 const SITE_TITLE = process.env.NEXT_PUBLIC_SITE_TITLE || 'MEV Wiki';
 
 export function BrandMark() {
