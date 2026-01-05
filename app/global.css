@@ -20,7 +20,7 @@
 h1,
 article h1,
 main h1 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-family: 'Inter', 'Inter Fallback', system-ui, Arial, sans-serif !important;
   font-weight: 700 !important;
   font-size: 36px !important;
   line-height: 45px !important;
@@ -32,7 +32,7 @@ article h2,
 main h2,
 .prose h2,
 [data-content] h2 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-family: 'Inter', 'Inter Fallback', system-ui, Arial, sans-serif !important;
   font-weight: 600 !important;
   font-size: 30px !important;
   line-height: 38px !important;
@@ -45,7 +45,7 @@ article p,
 article li,
 article,
 main {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+  font-family: 'Inter', 'Inter Fallback', system-ui, Arial, sans-serif !important;
   font-style: normal !important;
   font-weight: 400 !important;
   font-size: 16px !important;
@@ -107,6 +107,14 @@ main {
   h2:has(img),
   article h2:has(img) {
     line-height: 1.25 !important;
+  }
+
+  /* Heading icon class for consistent sizing and alignment */
+  .heading-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   /* Remove margins from inline images in headings */
