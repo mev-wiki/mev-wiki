@@ -18,7 +18,18 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', ...style }}
       />
     ),
-    img: (props) => <ImageZoom {...(props as any)} />,
+    img: (props) => {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const { src, className, ...restProps } = props as any;
+
+      // For heading icons, add basePath to the src
+      if (className?.includes('heading-icon') && src && typeof src === 'string') {
+        return <img {...restProps} src={`${basePath}${src}`} className={className} />;
+      }
+
+      // For all other images, use ImageZoom
+      return <ImageZoom {...(props as any)} />;
+    },
     ...components,
   };
 }
