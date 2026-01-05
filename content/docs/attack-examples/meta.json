@@ -1,5 +1,6 @@
 {
   "title": "Attack Examples",
+  "defaultOpen": true,
   "pages": [
     "front-running",
     "sandwich-attack",

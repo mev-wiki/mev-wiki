@@ -1,5 +1,6 @@
 {
   "title": "Documentation",
+  "defaultOpen": true,
   "pages": [
     "index",
     "resource-list",

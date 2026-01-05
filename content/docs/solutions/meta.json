@@ -1,5 +1,6 @@
 {
   "title": "Solutions",
+  "defaultOpen": true,
   "pages": [
     "faas-or-meva",
     "mev-minimization",
