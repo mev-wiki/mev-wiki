@@ -1,7 +1,6 @@
 {
   "title": "Attack Examples",
   "pages": [
-    "index",
     "front-running",
     "sandwich-attack",
     "back-running",

@@ -1,7 +1,6 @@
 {
   "title": "MEV Minimization",
   "pages": [
-    "index",
     "conveyor-automata-network",
     "secretswap-secret-network",
     "fair-sequencing-service-chainlink",
