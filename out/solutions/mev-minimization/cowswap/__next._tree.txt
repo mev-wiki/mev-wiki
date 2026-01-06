@@ -1,4 +1,4 @@
 :HL["/_next/static/chunks/8cdd02fe97d4ae98.css","style"]
 :HL["/_next/static/chunks/2f46520a7df96dce.css","style"]
-:HL["/images/icon-defense-shield.png","image"]
-0:{"buildId":"kSnki6gaxfqFzWL5nX3UG","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"oc","paramKey":"solutions/mev-minimization/cowswap","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/mev-wiki/images/icon-defense-shield.png","image"]
+0:{"buildId":"HGdhFmTXmgQDhZpk-A2O_","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"oc","paramKey":"solutions/mev-minimization/cowswap","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
