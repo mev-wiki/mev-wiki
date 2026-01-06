@@ -162,17 +162,17 @@ Front-running is the process by which an adversary observes transactions on the 
 # Examples of MEV attacks
 
 <Cards cols={1}>
-  <Card title="Front-running" href="front-running" />
+  <Card title="Front-running" href="/attack-examples/front-running" />
 
-  <Card title="Sandwich attack" href="sandwich-attack" />
+  <Card title="Sandwich attack" href="/attack-examples/sandwich-attack" />
 
-  <Card title="Back-running" href="back-running" />
+  <Card title="Back-running" href="/attack-examples/back-running" />
 
-  <Card title="Liquidations" href="liquidations" />
+  <Card title="Liquidations" href="/attack-examples/liquidations" />
 
-  <Card title="Time bandit attack" href="time-bandit-attack" />
+  <Card title="Time bandit attack" href="/attack-examples/time-bandit-attack" />
 
-  <Card title="Uncle bandit attack" href="uncle-bandit-attack" />
+  <Card title="Uncle bandit attack" href="/attack-examples/uncle-bandit-attack" />
 </Cards>
 
 
@@ -241,11 +241,11 @@ Instead of seeing something late in time and rewinding it (time-bandit attack), 
 ## Various methods to trick MEV bots
 
 <Cards cols={1}>
-  <Card title="Salmonella" href="salmonella" />
+  <Card title="Salmonella" href="/attempts-to-trick-the-bots/salmonella" />
 
-  <Card title="Kattana" href="kattana" />
+  <Card title="Kattana" href="/attempts-to-trick-the-bots/kattana" />
 
-  <Card title="Other attempts" href="other-attempts-to-trick-the-bot" />
+  <Card title="Other attempts" href="/attempts-to-trick-the-bots/other-attempts-to-trick-the-bot" />
 </Cards>
 
 
@@ -318,11 +318,11 @@ Projects like Automata Network are in the Defense camp where the solution [Conve
 To further explain, we have put different approaches into 3 categories:
 
 <Cards cols={1}>
-  <Card title="Front-running as a Service (FaaS) or MEV Auctions (MEVA)" href="faas-or-meva" />
+  <Card title="Front-running as a Service (FaaS) or MEV Auctions (MEVA)" href="/solutions/faas-or-meva" />
 
-  <Card title="MEV Minimization" href="mev-minimization" />
+  <Card title="MEV Minimization" href="/solutions/mev-minimization" />
 
-  <Card title="Other solutions" href="others" />
+  <Card title="Other solutions" href="/solutions/others" />
 </Cards>
 
 
@@ -358,21 +358,21 @@ DeFi is a subset of finance-focused decentralized protocols that operate autonom
 ## Core concepts related to MEV
 
 <Cards cols={1}>
-  <Card title="DeFi" href="defi" />
+  <Card title="DeFi" href="/terms-and-concepts/defi" />
 
-  <Card title="Automated Market Maker" href="automated-market-maker" />
+  <Card title="Automated Market Maker" href="/terms-and-concepts/automated-market-maker" />
 
-  <Card title="Arbitrage" href="arbitrage" />
+  <Card title="Arbitrage" href="/terms-and-concepts/arbitrage" />
 
-  <Card title="Lending Platforms" href="lending-platforms" />
+  <Card title="Lending Platforms" href="/terms-and-concepts/lending-platforms" />
 
-  <Card title="Slippage" href="slippage" />
+  <Card title="Slippage" href="/terms-and-concepts/slippage" />
 
-  <Card title="Liquidations" href="liquidations" />
+  <Card title="Liquidations" href="/terms-and-concepts/liquidations" />
 
-  <Card title="Priority Gas Auctions" href="priority-gas-auctions" />
+  <Card title="Priority Gas Auctions" href="/terms-and-concepts/priority-gas-auctions" />
 
-  <Card title="Transaction Ordering" href="transaction-ordering" />
+  <Card title="Transaction Ordering" href="/terms-and-concepts/transaction-ordering" />
 </Cards>
 
 
@@ -539,23 +539,23 @@ In a FaaS or MEVA system, MEV is extracted in a variety of ways such as miners a
 ## See the various solutions: <a href="#flashbots" id="flashbots" />
 
 <Cards cols={1}>
-  <Card title="Private Transactions" href="private-transactions" />
+  <Card title="Private Transactions" href="/solutions/faas-or-meva/private-transactions" />
 
-  <Card title="BackRunMe by bloXroute" href="backrunme-by-bloxroute" />
+  <Card title="BackRunMe by bloXroute" href="/solutions/faas-or-meva/backrunme-by-bloxroute" />
 
-  <Card title="Flashbots" href="flashbots" />
+  <Card title="Flashbots" href="/solutions/faas-or-meva/flashbots" />
 
-  <Card title="MistX by alchemist" href="mistx-by-alchemist" />
+  <Card title="MistX by alchemist" href="/solutions/faas-or-meva/mistx-by-alchemist" />
 
-  <Card title="KeeperDAO" href="keeperdao" />
+  <Card title="KeeperDAO" href="/solutions/faas-or-meva/keeperdao" />
 
-  <Card title="Eden Network (ArcherSwap)" href="archerswap" />
+  <Card title="Eden Network (ArcherSwap)" href="/solutions/faas-or-meva/archerswap" />
 
-  <Card title="Optimism" href="optimism" />
+  <Card title="Optimism" href="/solutions/faas-or-meva/optimism" />
 
-  <Card title="MiningDAO" href="miningdao" />
+  <Card title="MiningDAO" href="/solutions/faas-or-meva/miningdao" />
 
-  <Card title="BackBone Cabal" href="backbone-cabal" />
+  <Card title="BackBone Cabal" href="/solutions/faas-or-meva/backbone-cabal" />
 </Cards>
 
 
@@ -832,25 +832,25 @@ FSS is a framework for implementing ordering policies, of which [Aequitas](https
 ## Various solutions in MEV minimization
 
 <Cards cols={1}>
-  <Card title="Conveyor (Automata Network)" href="conveyor-automata-network" />
+  <Card title="Conveyor (Automata Network)" href="/solutions/mev-minimization/conveyor-automata-network" />
 
-  <Card title="SecretSwap (Secret Network)" href="secretswap-secret-network" />
+  <Card title="SecretSwap (Secret Network)" href="/solutions/mev-minimization/secretswap-secret-network" />
 
-  <Card title="Fair Sequencing Service (Chainlink)" href="fair-sequencing-service-chainlink" />
+  <Card title="Fair Sequencing Service (Chainlink)" href="/solutions/mev-minimization/fair-sequencing-service-chainlink" />
 
-  <Card title="Arbitrum (Offchain Labs)" href="arbitrum-offchain-labs" />
+  <Card title="Arbitrum (Offchain Labs)" href="/solutions/mev-minimization/arbitrum-offchain-labs" />
 
-  <Card title="Vega protocol" href="vega-protocol" />
+  <Card title="Vega protocol" href="/solutions/mev-minimization/vega-protocol" />
 
-  <Card title="CowSwap" href="cowswap" />
+  <Card title="CowSwap" href="/solutions/mev-minimization/cowswap" />
 
-  <Card title="Veedo (StarkWare)" href="veedo-starkware" />
+  <Card title="Veedo (StarkWare)" href="/solutions/mev-minimization/veedo-starkware" />
 
-  <Card title="LibSubmarine" href="libsubmarine" />
+  <Card title="LibSubmarine" href="/solutions/mev-minimization/libsubmarine" />
 
-  <Card title="Sikka" href="sikka" />
+  <Card title="Sikka" href="/solutions/mev-minimization/sikka" />
 
-  <Card title="Shutter Network" href="shutter-network" />
+  <Card title="Shutter Network" href="/solutions/mev-minimization/shutter-network" />
 </Cards>
 
 
@@ -888,7 +888,7 @@ The protocol uses swap secret contract based tokens (SNIP-20s) on Secret Network
 
 # Shutter Network
 
-## <img src="/mev-wiki/images/images/icon-defense-shield.png" alt="" className="heading-icon" />Shutter Network
+## <img src="/mev-wiki/images/icon-defense-shield.png" alt="" className="heading-icon" />Shutter Network
 
 Shutter Network is an open-source project that aims to prevent frontrunning and malicious MEV on Ethereum by using a threshold cryptography-based distributed key generation (DKG) protocol.
 
@@ -987,5 +987,5 @@ Users interact with existing lending platforms via B.Protocol smart contract. Li
 Here are the list of other solutions:
 
 <Cards cols={1}>
-  <Card title="B.Protocol" href="b.protocol" />
+  <Card title="B.Protocol" href="/solutions/others/b.protocol" />
 </Cards>
