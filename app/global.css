@@ -453,3 +453,10 @@ article > h2:has(img) {
 }
 
 /* Removed: old rule was causing issues with list item images */
+
+/* Keep article content above floating UI like popovers or sticky controls */
+#nd-page_article,
+#nd-page article {
+  position: relative;
+  z-index: 50 !important;
+}

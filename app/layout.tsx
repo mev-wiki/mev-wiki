@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
 import SocialIcons from '@/components/social-icons';
-import LLMCopyButton from '@/components/llm-copy-button';
 import { Analytics } from '@vercel/analytics/react';
 import { source } from '@/lib/source';
 import { siteUrl, withBasePath } from '@/lib/env';
@@ -88,7 +87,6 @@ export default function Layout({ children }: LayoutProps<'/'>) {
           }}
         >
           <DocsLayout tree={source.pageTree} {...baseOptions()}>
-            <LLMCopyButton />
             <SocialIcons />
             {children}
           </DocsLayout>

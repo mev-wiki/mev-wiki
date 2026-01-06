@@ -7,7 +7,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 type CopyState = "idle" | "copying" | "success" | "error";
 
-export default function LLMCopyButton({ href }: { href?: string }) {
+type Placement = "toc" | "article";
+
+export default function LLMCopyButton({
+  href,
+  placement = "article",
+}: {
+  href?: string;
+  placement?: Placement;
+}) {
   const [slot, setSlot] = useState<HTMLElement | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
@@ -18,6 +26,8 @@ export default function LLMCopyButton({ href }: { href?: string }) {
 
   // Create/attach a slot inside the TOC so the button sits with the page actions.
   useEffect(() => {
+    if (placement !== "toc") return;
+
     let node: HTMLElement | null = null;
     let attempts = 0;
 
@@ -57,7 +67,7 @@ export default function LLMCopyButton({ href }: { href?: string }) {
     return () => {
       if (node?.parentElement) node.parentElement.removeChild(node);
     };
-  }, [pathname]);
+  }, [pathname, placement]);
 
   useEffect(() => {
     setCurrentUrl(typeof window !== "undefined" ? window.location.href : "");
@@ -121,10 +131,8 @@ export default function LLMCopyButton({ href }: { href?: string }) {
     }
   };
 
-  if (!slot) return null;
-
-  return createPortal(
-    <div className="relative w-full" ref={dropdownRef}>
+  const content = (
+    <div className="relative w-full max-w-xs sm:max-w-none" ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -219,7 +227,13 @@ export default function LLMCopyButton({ href }: { href?: string }) {
           </div>
         </div>
       ) : null}
-    </div>,
-    slot,
+    </div>
   );
+
+  if (placement === "toc") {
+    if (!slot) return null;
+    return createPortal(content, slot);
+  }
+
+  return content;
 }
