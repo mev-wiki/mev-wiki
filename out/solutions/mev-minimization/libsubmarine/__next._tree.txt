@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/e7a20422bd45263a.css","style"]
+:HL["/_next/static/chunks/4fdd30bd3c2c890f.css","style"]
 :HL["/_next/static/chunks/2f46520a7df96dce.css","style"]
 :HL["/mev-wiki/images/icon-defense-shield.png","image"]
-0:{"buildId":"-kNCg29bOBBuCF_ou8xV1","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"oc","paramKey":"solutions/mev-minimization/libsubmarine","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"eYqTxCvAIanJn4XAH9_rc","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"slug","paramType":"oc","paramKey":"solutions/mev-minimization/libsubmarine","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

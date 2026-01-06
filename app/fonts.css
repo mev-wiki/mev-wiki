@@ -4,8 +4,9 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('/mev-wik/fonts/InterVariable.woff2') format('woff2-variations');
-  src: url('/mev-wik/fonts/InterVariable.woff2') format('woff2') tech('variations');
+  src: url('/mev-wiki/fonts/InterVariable.woff2') format('woff2-variations');
+  src: url('/mev-wiki/fonts/InterVariable.woff2') format('woff2') tech('variations');
+
 }
 
 /* Fallback for specific weights if variable font not supported */
@@ -14,7 +15,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/mev-wik/fonts/Inter-Regular.woff2') format('woff2');
+  src: url('/mev-wiki/fonts/Inter-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -22,7 +23,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/mev-wik/fonts/Inter-SemiBold.woff2') format('woff2');
+  src: url('/mev-wiki/fonts/Inter-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
@@ -30,5 +31,5 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/mev-wik/fonts/Inter-Bold.woff2') format('woff2');
+  src: url('/mev-wiki/fonts/Inter-Bold.woff2') format('woff2');
 }
