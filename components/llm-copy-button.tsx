@@ -4,6 +4,7 @@ import { Clipboard, ExternalLink, FileText, ChevronDown, Bot, Sparkles } from "l
 import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { withBasePath } from "@/lib/env";
 
 type CopyState = "idle" | "copying" | "success" | "error";
 
@@ -23,6 +24,8 @@ export default function LLMCopyButton({
   const [state, setState] = useState<CopyState>("idle");
   const [open, setOpen] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
+  const [markdownMap, setMarkdownMap] = useState<Record<string, string> | null>(null);
+  const [loadingMap, setLoadingMap] = useState(false);
 
   // Create/attach a slot inside the TOC so the button sits with the page actions.
   useEffect(() => {
@@ -95,10 +98,7 @@ export default function LLMCopyButton({
     error: "Retry",
   };
 
-  const markdownHref = useMemo(
-    () => `/api/markdown?href=${encodeURIComponent(target || "/")}`,
-    [target],
-  );
+  const markdownEndpoint = useMemo(() => withBasePath("/api/markdown"), []);
 
   const chatHref = useMemo(() => {
     if (!currentUrl) return "#";
@@ -110,23 +110,68 @@ export default function LLMCopyButton({
     return `https://claude.ai/new?q=${encodeURIComponent(`Read this page: ${currentUrl}`)}`;
   }, [currentUrl]);
 
+  const normalizePath = useMemo(() => {
+    try {
+      const url = new URL(target || "/", currentUrl || window.location.origin);
+      const path = (url.pathname || "/").replace(/\/+$/, "") || "/";
+      return path;
+    } catch {
+      return (target || "/").replace(/\/+$/, "") || "/";
+    }
+  }, [currentUrl, target]);
+
+  const loadMarkdownMap = async () => {
+    if (markdownMap) return markdownMap;
+
+    setLoadingMap(true);
+    try {
+      const res = await fetch(markdownEndpoint, { cache: "force-cache" });
+      if (!res.ok) throw new Error(`Failed to load markdown index: ${res.status}`);
+      const data = (await res.json()) as { pages?: { path: string; markdown: string }[] };
+      const map: Record<string, string> = {};
+      for (const entry of data.pages ?? []) {
+        const key = (entry.path || "/").replace(/\/+$/, "") || "/";
+        map[key] = entry.markdown;
+      }
+      setMarkdownMap(map);
+      return map;
+    } finally {
+      setLoadingMap(false);
+    }
+  };
+
   const handleCopy = async () => {
     if (!target) return;
 
     setState("copying");
     try {
-      const res = await fetch(markdownHref);
-
-      if (!res.ok) {
-        throw new Error(`Failed to fetch markdown: ${res.status}`);
+      const map = await loadMarkdownMap();
+      const text = map?.[normalizePath];
+      if (!text) {
+        throw new Error(`Markdown not found for ${normalizePath}`);
       }
-
-      const text = await res.text();
       await navigator.clipboard.writeText(text);
       setState("success");
       setTimeout(() => setState("idle"), 1200);
     } catch (error) {
       console.error("LLMCopyButton copy failed", error);
+      setState("error");
+    }
+  };
+
+  const handleOpenMarkdown = async () => {
+    try {
+      const map = await loadMarkdownMap();
+      const text = map?.[normalizePath];
+      if (!text) {
+        throw new Error(`Markdown not found for ${normalizePath}`);
+      }
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank", "noopener,noreferrer");
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
+    } catch (error) {
+      console.error("LLMCopyButton view failed", error);
       setState("error");
     }
   };
@@ -151,7 +196,7 @@ export default function LLMCopyButton({
             <button
               type="button"
               onClick={handleCopy}
-              disabled={state === "copying"}
+              disabled={state === "copying" || loadingMap}
               className="flex w-full items-start gap-3 px-4 py-3 text-left transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-60 dark:hover:bg-neutral-800/60"
             >
               <Clipboard className="mt-0.5 h-5 w-5 text-neutral-500 dark:text-neutral-400" />
@@ -165,11 +210,11 @@ export default function LLMCopyButton({
               </div>
             </button>
 
-            <a
-              href={markdownHref}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-start gap-3 px-4 py-3 transition hover:bg-neutral-50 dark:hover:bg-neutral-800/60"
+            <button
+              type="button"
+              onClick={handleOpenMarkdown}
+              disabled={loadingMap}
+              className="flex w-full items-start gap-3 px-4 py-3 text-left transition hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-60 dark:hover:bg-neutral-800/60"
             >
               <FileText className="mt-0.5 h-5 w-5 text-neutral-500 dark:text-neutral-400" />
               <div className="flex w-full items-start justify-between gap-2">
@@ -183,7 +228,7 @@ export default function LLMCopyButton({
                 </div>
                 <ExternalLink className="h-4 w-4 text-neutral-400" />
               </div>
-            </a>
+            </button>
 
             <a
               href={chatHref}
