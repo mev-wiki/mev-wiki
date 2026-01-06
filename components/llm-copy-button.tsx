@@ -177,7 +177,7 @@ export default function LLMCopyButton({
   };
 
   const content = (
-    <div className="relative w-full max-w-xs sm:max-w-none" ref={dropdownRef}>
+    <div className="relative ml-auto w-1/3 max-w-xs sm:ml-0 sm:w-full sm:max-w-none" ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
