@@ -458,5 +458,5 @@ article > h2:has(img) {
 #nd-page_article,
 #nd-page article {
   position: relative;
-  z-index: 50 !important;
+  z-index: 20 !important;
 }
