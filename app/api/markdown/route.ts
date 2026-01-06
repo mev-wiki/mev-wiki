@@ -9,9 +9,18 @@ export async function GET() {
 
   const entries = await Promise.all(
     pages.map(async (page) => {
-      const path = withBasePath(`/${page.slugs.join('/')}`).replace(/\/+$/, '') || '/';
+      const pathWithBase = withBasePath(`/${page.slugs.join('/')}`).replace(/\/+$/, '') || '/';
+      // Provide basePath-stripped alias so lookups work regardless of basePath handling in the client.
+      const pathWithoutBase = pathWithBase.replace(
+        new RegExp(`^${withBasePath('/').replace(/\/$/, '')}`),
+        '',
+      ) || '/';
       const markdown = await getLLMText(page);
-      return { path, markdown };
+      return {
+        path: pathWithBase,
+        pathAlias: pathWithoutBase.startsWith('/') ? pathWithoutBase : `/${pathWithoutBase}`,
+        markdown,
+      };
     }),
   );
 

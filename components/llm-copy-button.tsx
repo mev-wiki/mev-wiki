@@ -111,14 +111,23 @@ export default function LLMCopyButton({
   }, [currentUrl]);
 
   const normalizePath = useMemo(() => {
+    const clean = (value: string) => {
+      const cleaned = value.replace(/\/+$/, "") || "/";
+      return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+    };
+
     try {
       const url = new URL(target || "/", currentUrl || window.location.origin);
-      const path = (url.pathname || "/").replace(/\/+$/, "") || "/";
-      return path;
+      return clean(url.pathname || "/");
     } catch {
-      return (target || "/").replace(/\/+$/, "") || "/";
+      return clean(target || "/");
     }
   }, [currentUrl, target]);
+
+  const normalizeWithBase = useMemo(() => {
+    const withBase = withBasePath(normalizePath);
+    return withBase.replace(/\/+$/, "") || "/";
+  }, [normalizePath]);
 
   const loadMarkdownMap = async () => {
     if (markdownMap) return markdownMap;
@@ -127,11 +136,17 @@ export default function LLMCopyButton({
     try {
       const res = await fetch(markdownEndpoint, { cache: "force-cache" });
       if (!res.ok) throw new Error(`Failed to load markdown index: ${res.status}`);
-      const data = (await res.json()) as { pages?: { path: string; markdown: string }[] };
+      const data = (await res.json()) as {
+        pages?: { path: string; pathAlias?: string; markdown: string }[];
+      };
       const map: Record<string, string> = {};
       for (const entry of data.pages ?? []) {
         const key = (entry.path || "/").replace(/\/+$/, "") || "/";
         map[key] = entry.markdown;
+        if (entry.pathAlias) {
+          const aliasKey = (entry.pathAlias || "/").replace(/\/+$/, "") || "/";
+          map[aliasKey] = entry.markdown;
+        }
       }
       setMarkdownMap(map);
       return map;
@@ -146,7 +161,7 @@ export default function LLMCopyButton({
     setState("copying");
     try {
       const map = await loadMarkdownMap();
-      const text = map?.[normalizePath];
+      const text = map?.[normalizePath] ?? map?.[normalizeWithBase];
       if (!text) {
         throw new Error(`Markdown not found for ${normalizePath}`);
       }
@@ -162,7 +177,7 @@ export default function LLMCopyButton({
   const handleOpenMarkdown = async () => {
     try {
       const map = await loadMarkdownMap();
-      const text = map?.[normalizePath];
+      const text = map?.[normalizePath] ?? map?.[normalizeWithBase];
       if (!text) {
         throw new Error(`Markdown not found for ${normalizePath}`);
       }
