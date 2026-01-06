@@ -32,8 +32,8 @@ jobs:
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_BASE_PATH: /mev-wiki
-          NEXT_PUBLIC_SITE_URL: https://mev-wiki.github.io/mev-wiki/
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://mev.wiki/
           NEXT_PUBLIC_GITHUB_PAGES: "true"
           NEXT_EXPORT: "true"
           NEXT_PUBLIC_ENABLE_SEARCH: "true"
